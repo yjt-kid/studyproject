@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjt.study.projectdao.mapper.SiteMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yjt.study.projectentry.entry.Site">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="project_id" property="projectId" />
+        <result column="delete_flag" property="deleteFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, project_id, delete_flag
+    </sql>
+    <select id="getByPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from site
+    </select>
+</mapper>
